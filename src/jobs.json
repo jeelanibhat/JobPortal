@@ -16,16 +16,16 @@
     },
     {
       "id": "3",
-      "title": "React.js Dev",
       "type": "Full-Time",
-      "location": "Brooklyn, NY",
-      "description": "Are you passionate about front-end development? Join our team in vibrant Brooklyn, NY, and work on exciting projects that make a difference. We offer competitive compensation and a collaborative work environment where your ideas are valued.",
+      "title": "React.js Dev 3332",
+      "description": "Are you passionate about front-end development? Join our team in vibrant Brooklyn, NY, and work on exciting projects that make a difference. We offer competitive compensation and a collaborative work environment where your ideas are valued.2",
       "salary": "$70K - $80K",
+      "location": "Brooklyn, NY 2",
       "company": {
-        "name": "Dolor Cloud",
-        "description": "Dolor Cloud is a leading technology company specializing in digital solutions for businesses of all sizes. With a focus on innovation and customer satisfaction, we are committed to delivering cutting-edge products and services.",
-        "contactEmail": "contact@dolorsitamet.com",
-        "contactPhone": "555-555-5555"
+        "name": "Dolor Cloud2",
+        "description": "Dolor Cloud is a leading technology company specializing in digital solutions for businesses of all sizes. With a focus on innovation and customer satisfaction, we are committed to delivering cutting-edge products and services.2",
+        "contactEmail": "contact@dolorsitamet.com2",
+        "contactPhone": "555-555-55552"
       }
     },
     {
@@ -155,34 +155,6 @@
       }
     },
     {
-      "id": "21a3",
-      "type": "Remote",
-      "title": "test",
-      "desc": "test",
-      "salary": "$150K - 175K",
-      "location": "testss",
-      "company": {
-        "companyName": "testss",
-        "companyDesc": "adsf",
-        "contactEmail": "t@sf.sc",
-        "contactPhone": "234234234"
-      }
-    },
-    {
-      "id": "506a",
-      "type": "Part-Time",
-      "title": "React new Dev",
-      "desc": "Welcome to dev acamedy",
-      "salary": "$50K - 60K",
-      "location": "Mumbai",
-      "company": {
-        "companyName": "JB Web",
-        "companyDesc": "Awesome web compnay",
-        "contactEmail": "jb@gmail.com",
-        "contactPhone": "2342342344"
-      }
-    },
-    {
       "id": "030a",
       "type": "Remote",
       "title": "jeelani title",
@@ -199,7 +171,7 @@
     {
       "id": "b902",
       "type": "Part-Time",
-      "title": "UI Dev",
+      "title": "UI Dev JB",
       "description": "When more than 2 characters are entered into the search input, it triggers the search and destroys the existing table to refresh it wWhen more than 2 characters are entered into the search input, it triggers the search and destroys the existing table to refresh it w",
       "salary": "$125K - 150K",
       "location": "London",

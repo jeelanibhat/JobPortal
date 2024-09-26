@@ -1,32 +1,11 @@
 import SingleJob from "./SingleJob";
-import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
+import fetchJobHook from "../hooks/useJobFetch";
 
 
 const JobListings = ({ isHome = false }) => {
- 
-  //  const recentJobs = isHome ? jobs.slice(0,3) : jobs ;
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const url = isHome ? 'http://localhost:3100/jobs?_limit=3' : 'http://localhost:3100/jobs';
-  useEffect(() => {
 
-    const getJobsData = async () => {
-      try {
-        const fetchJobs = await fetch(url);
-        const response = await fetchJobs.json();
-        console.log("response", response)
-        setData(response)
-      } catch (error) {
-        console.log("Error:", error.message)
-      } finally {
-        setLoading(false);
-      }
-
-    }
-
-    getJobsData();
-  }, [])
+  const {data, loading} = isHome ? fetchJobHook("http://localhost:3100/jobs?_limit=3") : fetchJobHook('http://localhost:3100/jobs')
 
   if (loading) {
     return (
@@ -48,9 +27,6 @@ const JobListings = ({ isHome = false }) => {
               <SingleJob key={jobItem.id} jobItem={jobItem} />
             )
           })}
-
-
-
 
         </div>
       </div>

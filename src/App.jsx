@@ -5,6 +5,7 @@ import JobsPage from "./pages/JobsPage";
 import NotFound from "./pages/NotFound";
 import JobPage from "./pages/JobPage";
 import AddJob from "./pages/AddJob";
+import EditJobPage from "./pages/EditJobPage";
 
 
 
@@ -32,6 +33,19 @@ function App() {
     return
   }
 
+  // Edit Job
+  const updateJob = (job) =>{
+    const fetchJobData = fetch(`http://localhost:3100/jobs/${job.id}`, {
+      method: "PUT", 
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body : JSON.stringify(job)
+    })
+    return
+  }
+
+
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -39,6 +53,7 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="/jobs" element={<JobsPage />} />
         <Route path="/addjob" element={<AddJob submitNewJob={addNewJob} />} />
+        <Route path="/editjob/:id" element={<EditJobPage  updateJob={updateJob} />} />
         <Route path="/jobDetails/:id" element={<JobPage deleteJob={deleteJob} />} />
         <Route path="*" element={<NotFound />} />
       </Route>

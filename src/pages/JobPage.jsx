@@ -1,35 +1,15 @@
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import ViewAll from "../components/ViewAll"
 import Spinner from "../components/Spinner";
 import { FaMapMarker } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import fetchJobHook from "../hooks/useJobFetch";
 
 const JobPage = ({ deleteJob }) => {
+
     const navigate = useNavigate();
-    const [jobData, setJobData] = useState(null); // Initialize as null to check if data is loaded
     const { id } = useParams(); // Get 'id' from URL params
-    const [loading, setLoading] = useState(true);
-
-    // Convert the id from URL to an integer
-    // const adjustedId = parseInt(id, 10); // Specify radix to avoid NaN
-
-    useEffect(() => {
-        const getJobDetails = async () => {
-            try {
-                const fetchJobData = await fetch(`http://localhost:3100/jobs/${id}`);
-                const response = await fetchJobData.json();
-                setJobData(response);
-            } catch (error) {
-                console.log("error:", error.message)
-            } finally {
-                setLoading(false)
-            }
-
-        }
-        getJobDetails();
-    }, []);
-
+    const { data: jobData, loading } = fetchJobHook(`http://localhost:3100/jobs/${id}`)
 
     // If jobData is null, return a fallback message
     if (!jobData) {
@@ -44,7 +24,6 @@ const JobPage = ({ deleteJob }) => {
 
         deleteJob(jobId);
         navigate("/jobs")
-
     }
 
     return (
@@ -99,12 +78,12 @@ const JobPage = ({ deleteJob }) => {
 
                             <div className="bg-white p-6 rounded-lg shadow-md mt-6">
                                 <h3 className="text-xl font-bold mb-6">Manage Job</h3>
-                                <a
-                                    href="/add-job.html"
+                                <Link
+                                    to={`/editjob/${jobData.id}`}
                                     className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                                 >
                                     Edit Job
-                                </a>
+                                </Link>
                                 <button
                                     className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                                     onClick={() => { handleDelete(jobData.id) }}
